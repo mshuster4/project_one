@@ -1,0 +1,20 @@
+body, html {
+    height: 100%;
+}
+
+#welcome-page {
+    background-image: url("../images/option-2.jpg");
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  #welcome-header {
+    width: 100%;
+  }
+
+  .container {
+      color: white; 
+  }
