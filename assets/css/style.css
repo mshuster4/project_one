@@ -3,7 +3,7 @@ body, html {
 }
 
 #welcome-page {
-    background-image: url("../images/option-2.jpg");
+    background-image: url("../images/option-1.jpg");
     background-size: cover;
     height: 100%;
     text-align: center;
@@ -15,6 +15,21 @@ body, html {
     width: 100%;
   }
 
-  .container {
-      color: white; 
+  h1 {
+    padding-top: 15px;
   }
+
+  .container {
+    color: #fafafa;
+    background-color: black;
+    opacity: .45;
+    border-style: soilid;
+    border-radius: 40px;
+  }
+
+  form {
+      padding-bottom: 15px; 
+  }
+
+
+
