@@ -1,0 +1,35 @@
+body, html {
+    height: 100%;
+}
+
+#welcome-page {
+    background-image: url("../images/option-1.jpg");
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  #welcome-header {
+    width: 100%;
+  }
+
+  h1 {
+    padding-top: 15px;
+  }
+
+  .container {
+    color: #fafafa;
+    background-color: black;
+    opacity: .45;
+    border-style: soilid;
+    border-radius: 40px;
+  }
+
+  form {
+      padding-bottom: 15px; 
+  }
+
+
+
