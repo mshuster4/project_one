@@ -25,6 +25,7 @@ $(document).on("click", "#submitSearch", function () {
 
   getTicketmasterData();
 
+})
 
 function displayBrewerys() {
 
@@ -46,11 +47,25 @@ function displayBrewerys() {
         console.log(response); 
 
         });
-
 }
 
-$(document).on("click", "#submitSearch", function() {
+function datePicker () {
 
+    $('input[name="daterange"]').daterangepicker({
+    opens: 'left'
+
+    }, function(start, end, label) {   
+        var startFormatted = start.format('YYYY-MM-DD');
+        var endFormatted = end.format('YYYY-MM-DD');
+        console.log("A new date selection was made: " + startFormatted + ' to ' + endFormatted);
+        $("#datePicker").attr("value", startFormatted + ' to ' + endFormatted);
+        //you can use startFormatted & endFormatted to filter the data
+    });
+}
+datePicker();
+
+$(document).on("click", "#submitSearch", function() {
+    
     event.preventDefault();
 
     displayBrewerys(); 
