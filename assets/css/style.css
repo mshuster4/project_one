@@ -1,11 +1,11 @@
 body, html {
-    height: 100%;
+  background-image: url("../images/background-image2.jpg");
+  background-size: cover;
+  height: 100%;
 }
 
 #welcome-page {
-    background-image: url("../images/option-1.jpg");
-    background-size: cover;
-    height: 100%;
+    height: 75%;
     text-align: center;
     display: flex;
     align-items: center;
@@ -19,17 +19,24 @@ body, html {
     padding-top: 15px;
   }
 
-  .container {
-    color: #fafafa;
-    background-color: black;
-    opacity: .45;
-    border-style: soilid;
-    border-radius: 40px;
+  .welcome-container {
+    color: #231528;
+    background-color: rgb(251, 252, 244, .50);
+    border-style: solid;
+    border-radius: 20px;
+    padding-bottom: 20px;
   }
 
-  form {
-      padding-bottom: 15px; 
+  span.input-group-append {
+    background-color: white;
+    color: black; 
   }
 
+
+  #submitSearch {
+    margin-top: 15px; 
+  }
+
+  
 
 
