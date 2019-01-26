@@ -42,6 +42,8 @@ function displayBrewerys() {
 
     var city = $("#city-name").val().trim(); 
     var state = $("#state-name").val().trim(); 
+    $("#city-name").val("");
+    $("#state-name").val(""); 
 
     var queryURL = "https://api.openbrewerydb.org/breweries?by_state=" + state + "&by_city=" + city; 
 
@@ -56,12 +58,16 @@ function displayBrewerys() {
 
         for (var i = 0; i < 3; i++) {
 
-            var brewDiv = $("<div class='card-header'>");
-            var brewName = response[i].name;
-            var nameText = $("<h5>").html(response[i].name);
 
-            brewDiv.append(brewName);
-            $("#brewery-display").append(brewDiv); 
+
+            var brewDiv = $("<div class='card col-sm-4'>");
+            var brewName = brewDiv.html("<div class='card-header'>" + "<h5>" + response[i].name + "</h5>" + '</div>'
+                                        + "<div class='card-body'>" + "<p>" + response[i].street + "</p>" + 
+                                        + "<p>" + response[i].website_url + "</p>" +
+                                        "</div>");
+
+
+            $("#brewery-display").append(brewName); 
     
         }
 
