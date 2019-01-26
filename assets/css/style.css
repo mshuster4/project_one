@@ -19,7 +19,7 @@ body, html {
     padding-top: 15px;
   }
 
-  .container {
+  .welcome-container {
     color: #231528;
     background-color: rgb(251, 252, 244, .50);
     border-style: solid;
