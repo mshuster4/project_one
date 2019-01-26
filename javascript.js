@@ -1,4 +1,22 @@
 
+var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+
+$("#start-date").datepicker({
+
+    uiLibrary: 'bootstrap4',
+    minDate: today,  
+    maxDate: function() {
+        return $('#end-date').val();
+    }
+ }); 
+
+ $('#end-date').datepicker({
+    uiLibrary: 'bootstrap4',
+    minDate: function () {
+        return $('#start-date').val(); 
+    }
+ });
+
 function getTicketmasterData () {
 
     var cityName = $("#city-name").val().trim().split(" ").join("+");

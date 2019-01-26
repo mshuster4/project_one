@@ -27,6 +27,12 @@ body, html {
     padding-bottom: 20px;
   }
 
+  span.input-group-append {
+    background-color: white;
+    color: black; 
+  }
+
+
   #submitSearch {
     margin-top: 15px; 
   }
