@@ -1,37 +1,45 @@
 var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 
 $("#start-date").datepicker({
-
     uiLibrary: 'bootstrap4',
     minDate: today,  
     maxDate: function() {
-        return $('#end-date').val();
+        return $('#start-date').val();
     }
- }); 
+}); 
 
- $('#end-date').datepicker({
+$('#end-date').datepicker({
     uiLibrary: 'bootstrap4',
     minDate: function () {
-        return $('#start-date').val(); 
+        return $('#end-date').val(); 
     }
- });
+});
+
 
 function getTicketmasterData () {
-
+    var startDateURL = moment($('#start-date').val()).toISOString().split('.')[0]+"Z" ;
+    var endDateURL = moment($('#end-date').val()).toISOString().split('.')[0]+"Z" ;
     var cityName = $("#city-name").val().trim().split(" ").join("+");
     var stateName = $("#state-name").val().trim().split(" ").join("+")
+
+    var corsProxy = "https://cors-anywhere.herokuapp.com/";
+    var endpointUrl = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=QZRsgKsNDgOLAvshwXSGPyRAHB3ImEda&city=" + cityName + "&stateCode=" + stateName + "&startDateTime=" + startDateURL + "&endDateTime=" + endDateURL + "&size=12";
+    var fullUrl = corsProxy + endpointUrl;
 
     console.log(cityName);
     console.log(stateName);
 
-    var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=QZRsgKsNDgOLAvshwXSGPyRAHB3ImEda&size=3&city=" + cityName + "&stateCode=" + stateName;
 
+    //var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=QZRsgKsNDgOLAvshwXSGPyRAHB3ImEda&size=3";
+    console.log ('fullUrl',fullUrl);
+
+    
     $.ajax({
-        url: queryURL,
-        method: "GET"
+        url: fullUrl,
+        method:"GET",
       }).then(function(response) {
 
-        console.log (response);
+        console.log ('ticketmaster',response);
 
         for (var i = 0; i < 3; i++) {
 
@@ -45,6 +53,7 @@ function getTicketmasterData () {
             };
 
             console.log(eventInfo);
+
 
             function displayEventInfo (eventInfo) {
 
@@ -93,10 +102,9 @@ function getTicketmasterData () {
             };
 
             displayEventInfo(eventInfo);
-        
         };
 
-    });
+    }).catch(function(error){console.warn(error)});
 
 };
 
@@ -104,8 +112,6 @@ function displayBrewerys() {
 
     var city = $("#city-name").val().trim(); 
     var state = $("#state-name").val().trim(); 
-    $("#city-name").val("");
-    $("#state-name").val(""); 
 
     var queryURL = "https://api.openbrewerydb.org/breweries?by_state=" + state + "&by_city=" + city; 
 
@@ -132,8 +138,9 @@ function displayBrewerys() {
             $("#brewery-display").append(brewName); 
     
         }
-
+    })
 };
+
 
 
 $(document).on("click", "#submitSearch", function() {
@@ -145,5 +152,10 @@ $(document).on("click", "#submitSearch", function() {
     displayBrewerys(); 
 
     getTicketmasterData(); 
+
+    
+    
+
+    
 
 });
