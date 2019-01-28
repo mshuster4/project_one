@@ -5,38 +5,49 @@ body, html {
 }
 
 #welcome-page {
-    height: 75%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-  }
-  
-  #welcome-header {
-    width: 100%;
-  }
+  height: 75%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
 
-  h1 {
-    padding-top: 15px;
-  }
+#welcome-header {
+  width: 100%;
+}
 
-  .welcome-container {
-    color: #231528;
-    background-color: rgb(251, 252, 244, .50);
-    border-style: solid;
-    border-radius: 20px;
-    padding-bottom: 20px;
-  }
+h1 {
+  padding-top: 15px;
+}
 
-  span.input-group-append {
-    background-color: white;
-    color: black; 
-  }
+.welcome-container {
+  color: #231528;
+  background-color: rgb(251, 252, 244, .50);
+  border-style: solid;
+  border-radius: 20px;
+  padding-bottom: 20px;
+}
+
+span.input-group-append {
+  background-color: white;
+  color: black; 
+}
 
 
-  #submitSearch {
-    margin-top: 15px; 
-  }
+#submitSearch {
+  margin-top: 15px; 
+}
 
-  
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  margin-top: 15px;
+  padding: 15px; 
+}
+
+
+
 
 

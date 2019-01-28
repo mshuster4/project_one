@@ -20,6 +20,7 @@ function getTicketmasterData () {
 
     var cityName = $("#city-name").val().trim().split(" ").join("+");
     var stateName = $("#state-name").val().trim().split(" ").join("+")
+ 
 
     console.log(cityName);
     console.log(stateName);
@@ -50,6 +51,7 @@ function getTicketmasterData () {
 
                 console.log(eventInfo)
 
+                var cardCol = $("<div>")
                 var card = $("<div>");
                 var image = $("<img>");
                 var cardBody = $("<div>");
@@ -59,16 +61,17 @@ function getTicketmasterData () {
                 var listItemDate = $("<li>");
                 var listItemTime = $("<li>");
                 var linkToBuyTickets = $("<a>");
-            
-                card.addClass("card");
-                image.addClass("card-img-top");
+                
+                cardCol.addClass("col-sm-4"); 
+                card.addClass("card text-center");
+                image.addClass("card-img-top img-fluid");
                 cardBody.addClass("card-body");
                 cardTitle.addClass("card-title");
                 unorderedList.addClass("list-group list-group-flush");
                 listItemVenue.addClass("list-group-item");
                 listItemDate.addClass("list-group-item");
                 listItemTime.addClass("list-group-item");
-                linkToBuyTickets.addClass("card-link");
+                linkToBuyTickets.addClass("card-link list-group-item");
                 
                 image.attr("src", eventInfo.imageLink);
                 image.attr("alt", eventInfo.eventName);
@@ -77,18 +80,19 @@ function getTicketmasterData () {
                 listItemDate.text("Date: " + eventInfo.eventDate);
                 listItemTime.text("Start Time: " + eventInfo.eventTime);
                 linkToBuyTickets.attr("href", eventInfo.buyTicketLink);
+                linkToBuyTickets.text("Get Tickets"); 
 
-                card.append(image);
+                cardCol.append(card); 
                 card.append(cardBody);
-                card.append(cardTitle);
-                card.append(unorderedList);
-                card.append(listItemVenue);
-                card.append(listItemDate);
-                card.append(listItemTime);
-                card.append(cardBody);
-                card.append(linkToBuyTickets);
+                cardTitle.appendTo(cardBody); 
+                image.appendTo(card);
+                unorderedList.appendTo(card);
+                listItemVenue.appendTo(unorderedList);
+                listItemDate.appendTo(unorderedList);
+                listItemTime.appendTo(unorderedList);
+                linkToBuyTickets.appendTo(unorderedList);
 
-                $("#ticketmaster-display").append(card);
+                $("#ticketmaster-display").append(cardCol);
 
             };
 
@@ -100,18 +104,16 @@ function getTicketmasterData () {
 
 };
 
-function displayBrewerys() {
+function getBrewerys() {
 
     var city = $("#city-name").val().trim(); 
-    var state = $("#state-name").val().trim(); 
-    $("#city-name").val("");
-    $("#state-name").val(""); 
+    var state = $("#state-name").val().trim();
 
-    var queryURL = "https://api.openbrewerydb.org/breweries?by_state=" + state + "&by_city=" + city; 
+    var URL = "https://api.openbrewerydb.org/breweries?by_state=" + state + "&by_city=" + city; 
 
         $.ajax({
 
-        url: queryURL,
+        url: URL,
         method: "GET"
 
         }).then(function(response) {
@@ -120,20 +122,60 @@ function displayBrewerys() {
 
         for (var i = 0; i < 3; i++) {
 
+            var brewInfo = { 
+                name : response[i].name,
+                street : response[i].street,
+                city: response[i].city,
+                state: response[i].state,
+                website : response[i].website_url
+            };
 
 
-            var brewDiv = $("<div class='card col-sm-4'>");
-            var brewName = brewDiv.html("<div class='card-header'>" + "<h5>" + response[i].name + "</h5>" + '</div>'
-                                        + "<div class='card-body'>" + "<p>" + response[i].street + "</p>" + 
-                                        + "<p>" + response[i].website_url + "</p>" +
-                                        "</div>");
+            function displayBrewInfo(brewInfo) {
 
+                console.log(brewInfo)
 
-            $("#brewery-display").append(brewName); 
-    
-        }
+                var brewCardCol = $("<div>")
+                var brewCard = $("<div>");
+                var brewCardBody = $("<div>");
+                var brewCardTitle = $("<h5>");
+                var brewUnorderedList = $("<ul>");
+                var listBrewStreet = $("<li>"); 
+                var linkBrewWebsite = $("<a>");
+                
+                brewCardCol.addClass("col-sm-4")
+                brewCard.addClass("card text-center");
+                brewCardBody.addClass("card-body");
+                brewCardTitle.addClass("card-title");
+                brewUnorderedList.addClass("list-group list-group-flush");
+                listBrewStreet.addClass("list-group-item");
+                linkBrewWebsite.addClass("list-group-item card-link");
+                
+                
+                brewCardTitle.text(brewInfo.name);
+                listBrewStreet.text(brewInfo.street + " " + brewInfo.city + ", " + brewInfo.state); 
+                linkBrewWebsite.attr("href", brewInfo.website);
+                linkBrewWebsite.text("Website");
 
-};
+                brewCardCol.append(brewCard)
+                brewCard.append(brewCardBody);
+                brewCardTitle.appendTo(brewCardBody); 
+                brewUnorderedList.appendTo(brewCard);
+                listBrewStreet.appendTo(brewUnorderedList); 
+                linkBrewWebsite.appendTo(brewUnorderedList);
+
+                $("#brewery-display").append(brewCardCol); 
+
+            };
+
+            displayBrewInfo(brewInfo);
+        
+        };
+
+    });
+
+};   
+
 
 
 $(document).on("click", "#submitSearch", function() {
@@ -142,7 +184,7 @@ $(document).on("click", "#submitSearch", function() {
 
     $("#welcome-page").hide(); 
 
-    displayBrewerys(); 
+    getBrewerys(); 
 
     getTicketmasterData(); 
 
