@@ -66,7 +66,7 @@ function getTicketmasterData () {
                 
                 cardCol.addClass("col-md-4"); 
                 card.addClass("card text-center");
-                image.addClass("img-fluid");
+                image.addClass("card-img");
                 cardBody.addClass("card-body");
                 cardTitle.addClass("card-title");
                 unorderedList.addClass("list-group list-group-flush");
@@ -85,9 +85,9 @@ function getTicketmasterData () {
                 linkToBuyTickets.text("Get Tickets"); 
 
                 cardCol.append(card); 
-                card.append(cardBody);
+                cardBody.appendTo(card);
                 cardTitle.appendTo(cardBody); 
-                image.appendTo(cardBody);
+                image.appendTo(card);
                 unorderedList.appendTo(card);
                 listItemVenue.appendTo(unorderedList);
                 listItemDate.appendTo(unorderedList);
@@ -149,7 +149,7 @@ function getBrewerys() {
                 brewCard.addClass("card text-center");
                 brewCardBody.addClass("card-body");
                 brewCardTitle.addClass("card-title");
-                brewUnorderedList.addClass("list-group list-group-flush");
+                brewUnorderedList.addClass("list-group list-group-flush list");
                 listBrewStreet.addClass("list-group-item");
                 linkBrewWebsite.addClass("list-group-item card-link");
                 
@@ -160,7 +160,7 @@ function getBrewerys() {
                 linkBrewWebsite.text("Website");
 
                 brewCardCol.append(brewCard)
-                brewCard.append(brewCardBody);
+                brewCardBody.appendTo(brewCard);
                 brewCardTitle.appendTo(brewCardBody); 
                 brewUnorderedList.appendTo(brewCard);
                 listBrewStreet.appendTo(brewUnorderedList); 
@@ -180,8 +180,17 @@ function getBrewerys() {
 
 function displayHeaders() {
 
-    $("#brews-header").text("Brews");
-    $("#beats-header").text("Beats"); 
+    var brewsHeader = $("#brews-header")
+    var beatsHeader = $("#beats-header")
+    
+    brewsHeader.text("Brews");
+    beatsHeader.text( "BEATS");
+
+    brewsHeader.css("font-family", "brewFont");
+    beatsHeader.css("font-family", "beatsFont");
+    
+    brewsHeader.addClass("brews-header");
+    beatsHeader.addClass("beats-header");
 
 }
 
