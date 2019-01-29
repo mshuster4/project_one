@@ -1,11 +1,25 @@
+
+@font-face {
+  font-family: brewFont;
+  src: url(../fonts/BottledIt.otf);
+}
+
+@font-face{
+  font-family: beatsFont;
+  src: url(../fonts/onpu.TTF); 
+}
+
+
 body, html {
   background-image: url("../images/background-image2.jpg");
-  background-size: cover;
+  background-size: cover ;
   height: 100%;
+  background-repeat: no-repeat; 
+  overflow: auto; 
 }
 
 #welcome-page {
-  height: 75%;
+  height: 66.66%;
   text-align: center;
   display: flex;
   align-items: center;
@@ -15,39 +29,101 @@ body, html {
   width: 100%;
 }
 
-h1 {
-  padding-top: 15px;
+#content-container{
+  margin-bottom: 30px; 
 }
 
 .welcome-container {
   color: #231528;
-  background-color: rgb(251, 252, 244, .50);
   border-style: solid;
   border-radius: 20px;
   padding-bottom: 20px;
 }
 
-span.input-group-append {
-  background-color: white;
-  color: black; 
+h1 {
+  background-color: rgb(251, 252, 244, 0.50);
+  border-radius: 20px;
+  width: 83.15%;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+input.form-control.input {
+  color: rgb(250,249,200);
+  background-color: rgba(34,28,37,0.75);
+  border-radius: 10px;
+  outline: none;
+  box-shadow:none !important;
+
+}
+
+input.form-control.input:focus 
+input.form-control.input:active
+input.form-control.input:hover
+{
+  outline: none ! important;
+  box-shadow:none !important;
+  border: none ! important; 
+}
+
+input.form-control.input::placeholder{
+  color: rgb(250,249,200);
+  font-style: italic;
+  font-weight: lighter;
+}
+
+span.input-group-append {
+  color: white !important;
+  background-color: rgba(34,28,37, 0.75) !important;
+  border-radius: 10px 10px 10px 0px;
+  outline: none;
+  box-shadow:none !important;
+}
+
+.gj-picker {
+  color:  rgb(250,249,200);
+  background-color: rgba(34,28,37);
+  outline: none;
+  box-shadow:none !important;
+  border: none ! important; 
+
+}
+
+i {
+  color:  rgb(250,249,200);
+  background-color: rgba(34,28,37);
+  box-shadow:none !important;
+  outline: none ! important;
+}
+
+.gj-picker-bootstrap {
+  color:  rgb(250,249,200);
+  background-color: rgba(34,28,37);
+  outline: none;
+  box-shadow:none !important;
+  border: none ! important; 
+}
+
+.info-form{
+  padding: 30px;
+  margin-top: 15px;
+  border-radius: 20px;
+  background-color: rgb(251, 252, 244, .50);
+  height: 100%
+}
 
 #submitSearch {
-  margin-top: 15px; 
+  margin-top: 35px; 
+  background-color: rgba(34,28,37);
+  color: rgb(250,249,200);
+  width: 33.33%;
+  border-radius: 10px;
 }
 
-.card-img-top {
-  width: 100%;
+img {
+  max-width: 100%;
   height: auto;
 }
-
-.card {
-  margin-top: 15px;
-  padding: 15px; 
-}
-
-
-
 
 

@@ -3,6 +3,7 @@ var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date()
 $("#start-date").datepicker({
 
     uiLibrary: 'bootstrap4',
+    iconsLibrary: 'fontawesome',
     minDate: today,  
     maxDate: function() {
         return $('#end-date').val();
@@ -11,6 +12,7 @@ $("#start-date").datepicker({
 
  $('#end-date').datepicker({
     uiLibrary: 'bootstrap4',
+    iconsLibrary: 'fontawesome',
     minDate: function () {
         return $('#start-date').val(); 
     }
@@ -62,9 +64,9 @@ function getTicketmasterData () {
                 var listItemTime = $("<li>");
                 var linkToBuyTickets = $("<a>");
                 
-                cardCol.addClass("col-sm-4"); 
+                cardCol.addClass("col-md-4"); 
                 card.addClass("card text-center");
-                image.addClass("card-img-top img-fluid");
+                image.addClass("img-fluid");
                 cardBody.addClass("card-body");
                 cardTitle.addClass("card-title");
                 unorderedList.addClass("list-group list-group-flush");
@@ -85,7 +87,7 @@ function getTicketmasterData () {
                 cardCol.append(card); 
                 card.append(cardBody);
                 cardTitle.appendTo(cardBody); 
-                image.appendTo(card);
+                image.appendTo(cardBody);
                 unorderedList.appendTo(card);
                 listItemVenue.appendTo(unorderedList);
                 listItemDate.appendTo(unorderedList);
@@ -143,7 +145,7 @@ function getBrewerys() {
                 var listBrewStreet = $("<li>"); 
                 var linkBrewWebsite = $("<a>");
                 
-                brewCardCol.addClass("col-sm-4")
+                brewCardCol.addClass("col-md-4")
                 brewCard.addClass("card text-center");
                 brewCardBody.addClass("card-body");
                 brewCardTitle.addClass("card-title");
@@ -174,7 +176,14 @@ function getBrewerys() {
 
     });
 
-};   
+}; 
+
+function displayHeaders() {
+
+    $("#brews-header").text("Brews");
+    $("#beats-header").text("Beats"); 
+
+}
 
 
 
@@ -187,5 +196,7 @@ $(document).on("click", "#submitSearch", function() {
     getBrewerys(); 
 
     getTicketmasterData(); 
+
+    displayHeaders()
 
 });
