@@ -178,7 +178,7 @@ function getBrewerys() {
 
 }; 
 
-function displayHeaders() {
+function updateDOM() {
 
     var brewsHeader = $("#brews-header")
     var beatsHeader = $("#beats-header")
@@ -191,6 +191,13 @@ function displayHeaders() {
     
     brewsHeader.addClass("brews-header");
     beatsHeader.addClass("beats-header");
+
+    var resetButton = $("<button>");
+    resetButton.text("SEARCH AGAIN");
+    resetButton.attr("type", "submit");
+    resetButton.addClass("reset-button btn btn-primary");
+
+    $("#reset-button").append(resetButton); 
 
 }
 
@@ -206,6 +213,7 @@ $(document).on("click", "#submitSearch", function() {
 
     getTicketmasterData(); 
 
-    displayHeaders()
+    updateDOM();
+    
 
 });

@@ -111,11 +111,36 @@ i {
   height: 100%
 }
 
-#submitSearch {
-  margin-top: 35px; 
+.button {
   background-color: rgba(34,28,37);
   color: rgb(250,249,200);
+  border-color:rgba(34,28,37);
   border-radius: 10px;
+  margin-top: 35px; 
+}
+
+.button:hover{
+  background-color: rgb(250,249,200);
+  color: rgba(34,28,37);
+  border-color:  rgba(34,28,37);
+  outline: none ! important;
+}
+
+.reset-button {
+  background-color: rgba(34,28,37);
+  color: rgb(250,249,200);
+  border-color:rgba(34,28,37);
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px; 
+  outline: none ! important;
+}
+
+.reset-button:hover{
+  background-color: rgb(250,249,200);
+  color: rgba(34,28,37);
+  border-color:  rgba(34,28,37);
+  outline: none ! important;
 }
 
 .brews-header{
@@ -139,13 +164,9 @@ i {
   padding-bottom: 20px;
 }
 
-#content-container{
-  margin-bottom: 30px; 
-}
-
 .card {
   background-color: rgba(251, 252, 244, 0.50);
-  border-radius: 5px;
+  border-radius: 10px;
   color: rgb(34,28,37); 
 }
 
