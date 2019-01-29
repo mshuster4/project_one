@@ -123,7 +123,7 @@ i {
   background-color: rgb(250,249,200);
   color: rgba(34,28,37);
   border-color:  rgba(34,28,37);
-  outline: none ! important;
+  outline: 0 ! important;
 }
 
 .reset-button {
@@ -140,7 +140,7 @@ i {
   background-color: rgb(250,249,200);
   color: rgba(34,28,37);
   border-color:  rgba(34,28,37);
-  outline: none ! important;
+  outline: 0 ! important;
 }
 
 .brews-header{
