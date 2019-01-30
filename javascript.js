@@ -207,14 +207,11 @@ function updateDOM() {
     resetButton.attr("type", "submit");
     resetButton.addClass("reset-button btn btn-primary");
 
-        }
-    })
-};
+    }
+
+    // $("#reset-button").append(resetButton); 
 
 
-    $("#reset-button").append(resetButton); 
-
-}
 
 
 $(document).on("click", "#submitSearch", function() {
@@ -233,8 +230,8 @@ $(document).on("click", "#submitSearch", function() {
 
 });
 
-$(document).on("click", "#reset-button", function() {
+// $(document).on("click", "#reset-button", function() {
 
     
 
-});
+// });
