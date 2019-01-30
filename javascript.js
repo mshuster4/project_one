@@ -207,9 +207,10 @@ function updateDOM() {
     resetButton.attr("type", "submit");
     resetButton.addClass("reset-button btn btn-primary");
 
-    }
 
-    // $("#reset-button").append(resetButton); 
+    $("#reset-button").append(resetButton); 
+
+}
 
 
 
