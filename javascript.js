@@ -44,7 +44,7 @@ function getTicketmasterData () {
 
         console.log ('ticketmaster',response);
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < 6; i++) {
 
             var eventInfo = { 
                 imageLink: response._embedded.events[i].images[i].url,
@@ -73,7 +73,7 @@ function getTicketmasterData () {
                 var listItemTime = $("<li>");
                 var linkToBuyTickets = $("<a>");
                 
-                cardCol.addClass("col-md-4"); 
+                cardCol.addClass("col-sm-4"); 
                 card.addClass("card text-center");
                 image.addClass("card-img");
                 cardBody.addClass("card-body");
@@ -82,7 +82,7 @@ function getTicketmasterData () {
                 listItemVenue.addClass("list-group-item");
                 listItemDate.addClass("list-group-item");
                 listItemTime.addClass("list-group-item");
-                linkToBuyTickets.addClass("card-link list-group-item");
+                linkToBuyTickets.addClass("card-link list-group-item link");
                 
                 image.attr("src", eventInfo.imageLink);
                 image.attr("alt", eventInfo.eventName);
@@ -131,7 +131,7 @@ function getBrewerys() {
 
         console.log(response);
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < 6; i++) {
 
             var brewInfo = { 
                 name : response[i].name,
@@ -154,13 +154,13 @@ function getBrewerys() {
                 var listBrewStreet = $("<li>"); 
                 var linkBrewWebsite = $("<a>");
                 
-                brewCardCol.addClass("col-md-4")
+                brewCardCol.addClass("col-sm-4")
                 brewCard.addClass("card text-center");
                 brewCardBody.addClass("card-body");
                 brewCardTitle.addClass("card-title");
                 brewUnorderedList.addClass("list-group list-group-flush list");
                 listBrewStreet.addClass("list-group-item");
-                linkBrewWebsite.addClass("list-group-item card-link");
+                linkBrewWebsite.addClass("list-group-item card-link link");
                 
                 
                 brewCardTitle.text(brewInfo.name);

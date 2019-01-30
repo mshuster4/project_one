@@ -168,6 +168,16 @@ i {
   background-color: rgba(251, 252, 244, 0.50);
   border-radius: 10px;
   color: rgb(34,28,37); 
+  margin-bottom: 5px; 
+  margin-top: 5px; 
+}
+
+a.card-link.list-group-item.link {
+  font-weight: bold;
+}
+
+a.card-link.list-group-item.link:hover{
+  color: #bd291e; 
 }
 
 .list-group-item {
