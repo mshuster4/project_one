@@ -44,6 +44,7 @@ function getTicketmasterData () {
 
         console.log ('ticketmaster',response);
 
+
         for (var i = 0; i < 6; i++) {
 
             var eventInfo = { 
@@ -206,33 +207,45 @@ function updateDOM() {
     resetButton.text("SEARCH AGAIN");
     resetButton.attr("type", "submit");
     resetButton.addClass("reset-button btn btn-primary");
-
-
+  
     $("#reset-button").append(resetButton); 
 
 }
 
 
+function resetButton(){
+    $("#start-date").val("");
+    $("#end-date").val("");
+    $("#city-name").val("");
+    $("#state-name").val("");
+    $("#state-name").empty();
+    $("#brewery-display").empty();
+    $("#beats-header").empty();
+    $("#ticketmaster-display").empty();
 
+    $("#reset-button").empty();
+    
+    $("#content-page").hide();
+    
+    $("#welcome-page").show();
+
+}
 
 $(document).on("click", "#submitSearch", function() {
 
     event.preventDefault();
 
     $("#welcome-page").hide(); 
-
+    $("#content-page").show();
     getBrewerys(); 
-
     getTicketmasterData(); 
-
 
     updateDOM();
     
 
 });
 
-// $(document).on("click", "#reset-button", function() {
-
+$(document).on("click", "#reset-button", function() {
+    resetButton();
     
-
-// });
+});
