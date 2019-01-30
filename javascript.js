@@ -1,3 +1,17 @@
+// Initialize Firebase
+var config = {
+apiKey: "AIzaSyDGCRRLsDNGee2RH8DDq8BD8Uq3FiGBIrk",
+authDomain: "brewsandbeats-135c7.firebaseapp.com",
+databaseURL: "https://brewsandbeats-135c7.firebaseio.com",
+projectId: "brewsandbeats-135c7",
+storageBucket: "brewsandbeats-135c7.appspot.com",
+messagingSenderId: "615601158135"
+};
+
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
 var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 
 $("#start-date").datepicker({
@@ -57,6 +71,7 @@ function getTicketmasterData () {
 
             console.log(eventInfo);
 
+            database.ref().push(eventInfo);
 
             function displayEventInfo (eventInfo) {
 
@@ -141,6 +156,7 @@ function getBrewerys() {
                 website : response[i].website_url
             };
 
+            database.ref().push(brewInfo);
 
             function displayBrewInfo(brewInfo) {
 
@@ -224,10 +240,8 @@ $(document).on("click", "#submitSearch", function() {
 
     getTicketmasterData(); 
 
-
     updateDOM();
     
-
 });
 
 // $(document).on("click", "#reset-button", function() {
