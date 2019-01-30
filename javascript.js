@@ -201,8 +201,6 @@ function updateDOM() {
 
 }
 
-
-
 $(document).on("click", "#submitSearch", function() {
 
     event.preventDefault();
@@ -214,6 +212,12 @@ $(document).on("click", "#submitSearch", function() {
     getTicketmasterData(); 
 
     updateDOM();
+    
+
+});
+
+$(document).on("click", "#reset-button", function() {
+
     
 
 });
