@@ -31,6 +31,18 @@ $('#end-date').datepicker({
     }
 });
 
+function stateNameAbbr(state) {
+    
+    console.log(state);
+
+    if (state === "MN") {
+        return "Minnesota"
+    }
+
+    if (state === "AZ") {
+        return "Arizona"
+    }
+}
 
 function getTicketmasterData () {
     var startDateURL = moment($('#start-date').val()).toISOString().split('.')[0]+"Z" ;
@@ -133,7 +145,7 @@ function getTicketmasterData () {
 function getBrewerys() {
 
     var city = $("#city-name").val().trim(); 
-    var state = $("#state-name").val().trim(); 
+    var state = stateNameAbbr($("#state-name").val().trim()); 
 
 
     var URL = "https://api.openbrewerydb.org/breweries?by_state=" + state + "&by_city=" + city; 
@@ -252,10 +264,9 @@ $(document).on("click", "#submitSearch", function() {
     event.preventDefault();
 
     $("#welcome-page").hide(); 
-    $("#content-page").show();
-    getBrewerys(); 
+    $("#content-page").show(); 
     getTicketmasterData(); 
-
+    getBrewerys();
     updateDOM();
     
 });
