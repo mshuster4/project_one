@@ -5,7 +5,7 @@ This Entertainment Planning App provides users event options and venues in the c
 Planning a night out in an unfamilar area can be difficult and invovles searching across multiple websites.  Brews & Beats gives users important information about multiple events/breweries all on one platform.
 
 ## Link
-https://mshuster4.github.io/project_one/
+https://mshuster4.github.io/Brews-and-Beats/
 
 ## Homepage Screen Shot
 ![Image of Homepage](https://raw.github.com/mshuster4/project_one/final-revisions/assets/images/brews-beats-screenshot.png)
